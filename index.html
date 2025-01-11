@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EV Analytics Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="dashboard">
+        <header>
+            <h1>EV Analytics Dashboard</h1>
+            <div class="header-controls">
+                <input type="text" id="searchInput" placeholder="Search...">
+                <button id="themeToggle">Toggle Theme</button>
+            </div>
+        </header>
+
+        <section class="filters-section">
+            <div class="filter-container">
+                <select id="vehicleTypeFilter">
+                    <option value="">Vehicle Type</option>
+                </select>
+                <select id="manufacturerFilter">
+                    <option value="">Manufacturer</option>
+                </select>
+                <select id="yearFilter">
+                    <option value="">Registration Year</option>
+                </select>
+                <button id="resetFilters">Reset Filters</button>
+            </div>
+        </section>
+
+        <section class="insights-section">
+            <div class="card total-vehicles">
+                <h3>Total Vehicles</h3>
+                <p id="totalVehicles">0</p>
+            </div>
+            <div class="card top-manufacturers">
+                <h3>Top Manufacturers</h3>
+                <ul id="topManufacturers"></ul>
+            </div>
+            <div class="card vehicle-types">
+                <h3>Vehicle Types</h3>
+                <ul id="vehicleTypes"></ul>
+            </div>
+        </section>
+
+        <section class="visualization-section">
+            <div class="chart-container">
+                <canvas id="registrationChart"></canvas>
+            </div>
+            <div class="chart-container">
+                <canvas id="typeDistributionChart"></canvas>
+            </div>
+            <div class="chart-container">
+                <canvas id="manufacturerChart"></canvas>
+            </div>
+        </section>
+
+        <section class="table-section">
+            <div class="table-container">
+                <table id="dataTable">
+                    <thead>
+                        <tr>
+                            <th>Vehicle Type</th>
+                            <th>Manufacturer</th>
+                            <th>Registration Year</th>
+                            <th>Model</th>
+                            <th>Region</th>
+                            <th>Price</th>
+                            <th>Battery</th>
+                            <th>Range</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+            <div class="pagination">
+                <button id="prevPage">Previous</button>
+                <span id="pageInfo">Page 1 of 1</span>
+                <button id="nextPage">Next</button>
+            </div>
+        </section>
+    </div>
+    <div id="detailModal" class="modal">
+        <button id="modalClose" class="modal-close">&times;</button>
+        <div class="modal-content"></div>
+    </div>
+    <script type="module" src="script.js"></script>
+</body>
+</html> 
